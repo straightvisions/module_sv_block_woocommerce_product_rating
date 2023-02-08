@@ -15,9 +15,26 @@
 				->add_section( $this );
 
 			// hotfix: prevent empty rating html output when product was not rated yet
-			add_filter('woocommerce_product_get_rating_html', function($html, $rating, $count){
-				return wc_get_star_rating_html( $rating, $count );
-			}, 10, 3);
+			add_filter('woocommerce_product_get_rating_html', array($this, 'woocommerce_product_get_rating_html'), 10, 3);
+			add_filter('woocommerce_blocks_product_grid_item_html', array($this, 'woocommerce_blocks_product_grid_item_html'), 10, 3);
+		}
+		public function woocommerce_product_get_rating_html($html, $rating, $count){
+			return wc_get_star_rating_html( $rating, $count );
+		}
+		public function woocommerce_blocks_product_grid_item_html($block_content, $data, $product){
+			if(str_contains($block_content, 'wc-block-grid__product-rating')){
+				return $block_content;
+			}
+
+			$rating_count = $product->get_rating_count();
+			$average      = $product->get_average_rating();
+
+			$rating         = sprintf(
+				'<div class="wc-block-grid__product-rating">%s</div>',
+				wc_get_rating_html( $average, $rating_count )
+			);
+
+			return str_replace('</li>', $rating.'</li>', $block_content);
 		}
 		protected function load_settings(): sv_block_woocommerce_product_rating {
 			$this->get_setting( 'margin' )
