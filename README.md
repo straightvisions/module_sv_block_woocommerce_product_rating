@@ -1,0 +1,1 @@
+# module_sv_block_woocommerce_product_rating
