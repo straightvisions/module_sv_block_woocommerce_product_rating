@@ -13,28 +13,6 @@
 				->set_section_icon('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 8.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5zm9 .5l-2.519 4-2.481-1.96-4 5.96h14l-5-8zm8-4v14h-20v-14h20zm2-2h-24v18h24v-18z"/></svg>')
 				->get_root()
 				->add_section( $this );
-
-			// hotfix: prevent empty rating html output when product was not rated yet
-			add_filter('woocommerce_product_get_rating_html', array($this, 'woocommerce_product_get_rating_html'), 10, 3);
-			add_filter('woocommerce_blocks_product_grid_item_html', array($this, 'woocommerce_blocks_product_grid_item_html'), 10, 3);
-		}
-		public function woocommerce_product_get_rating_html($html, $rating, $count){
-			return wc_get_star_rating_html( $rating, $count );
-		}
-		public function woocommerce_blocks_product_grid_item_html($block_content, $data, $product){
-			if(str_contains($block_content, 'wc-block-grid__product-rating')){
-				return $block_content;
-			}
-
-			$rating_count = $product->get_rating_count();
-			$average      = $product->get_average_rating();
-
-			$rating         = sprintf(
-				'<div class="wc-block-grid__product-rating">%s</div>',
-				wc_get_rating_html( $average, $rating_count )
-			);
-
-			return str_replace('</li>', $rating.'</li>', $block_content);
 		}
 		protected function load_settings(): sv_block_woocommerce_product_rating {
 			$this->get_setting( 'margin' )
