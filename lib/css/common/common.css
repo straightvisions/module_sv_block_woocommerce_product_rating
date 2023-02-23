@@ -1,8 +1,5 @@
-body .wc-block-grid__product-rating,
-body .wc-block-components-product-rating,
-body .wc-block-components-product-rating span,
-body .wc-block-grid__product-rating span,
-.woocommerce-product-rating, .woocommerce-product-rating > span /* product single */{
+body .sv100_sv_block_woocommerce_product_rating,
+body .sv100_sv_block_woocommerce_product_rating span{
 	width:75px;
 	height:13px;
 	overflow:hidden;
@@ -11,21 +8,14 @@ body .wc-block-grid__product-rating span,
 	user-select: none;
 }
 
-body .wc-block-components-product-rating,
-body .wc-block-grid__product-rating,
-.woocommerce-product-rating /* product single */{
+body .sv100_sv_block_woocommerce_product_rating{
 	-webkit-mask-image: url('data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTEyIj48cGF0aCBkPSJNMjU5LjMgMTcuOEwxOTQgMTUwLjIgNDcuOSAxNzEuNWMtMjYuMiAzLjgtMzYuNyAzNi4xLTE3LjcgNTQuNmwxMDUuNyAxMDMtMjUgMTQ1LjVjLTQuNSAyNi4zIDIzLjIgNDYgNDYuNCAzMy43TDI4OCA0MzkuNmwxMzAuNyA2OC43YzIzLjIgMTIuMiA1MC45LTcuNCA0Ni40LTMzLjdsLTI1LTE0NS41IDEwNS43LTEwM2MxOS0xOC41IDguNS01MC44LTE3LjctNTQuNkwzODIgMTUwLjIgMzE2LjcgMTcuOGMtMTEuNy0yMy42LTQ1LjYtMjMuOS01Ny40IDB6Ii8+PC9zdmc+');
 	background-color: var(--wp--preset--color--grey);
+	display:inline-block;
 }
-body .wc-block-components-product-rating span,
-body .wc-block-grid__product-rating span,
-.woocommerce-product-rating > span /* product single */{
+body .sv100_sv_block_woocommerce_product_rating span{
 	display:block;
 	color:transparent;
 	-webkit-mask-image: url('data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTEyIj48cGF0aCBkPSJNMjU5LjMgMTcuOEwxOTQgMTUwLjIgNDcuOSAxNzEuNWMtMjYuMiAzLjgtMzYuNyAzNi4xLTE3LjcgNTQuNmwxMDUuNyAxMDMtMjUgMTQ1LjVjLTQuNSAyNi4zIDIzLjIgNDYgNDYuNCAzMy43TDI4OCA0MzkuNmwxMzAuNyA2OC43YzIzLjIgMTIuMiA1MC45LTcuNCA0Ni40LTMzLjdsLTI1LTE0NS41IDEwNS43LTEwM2MxOS0xOC41IDguNS01MC44LTE3LjctNTQuNkwzODIgMTUwLjIgMzE2LjcgMTcuOGMtMTEuNy0yMy42LTQ1LjYtMjMuOS01Ny40IDB6Ii8+PC9zdmc+');
 	background-color: var(--wp--preset--color--orange);
-}
-
-body .wc-block-components-product-rating__link{
-	color: transparent !important;
 }
